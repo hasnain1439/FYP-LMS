@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  # 1. Database (Postgres)
+  db:
+    image: postgres:15-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: lms_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  # 2. Your Backend
+  backend:
+    build: ./lms-husnain
+    ports:
+      - "5000:5000"
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/lms_db
+    depends_on:
+      - db
+
+  # 3. Your Frontend
+  frontend:
+    build: ./LMS-UI
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:

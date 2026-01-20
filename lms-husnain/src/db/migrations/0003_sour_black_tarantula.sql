@@ -1,0 +1,1 @@
+ALTER TABLE "courses" DROP COLUMN "credit_hours";

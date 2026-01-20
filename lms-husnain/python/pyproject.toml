@@ -1,0 +1,18 @@
+[project]
+name = "python-face-service"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.119.0",
+    "insightface>=0.7.3",
+    "mediapipe>=0.10.14",
+    "numpy>=2.3.4",
+    "onnxruntime>=1.23.1",
+    "opencv-python>=4.11.0.86",
+    "pydantic-settings>=2.11.0",
+    "python-multipart>=0.0.20",
+    "scikit-learn>=1.7.2",
+    "uvicorn>=0.37.0",
+]
